@@ -16,17 +16,17 @@ struct DashboardTabView: View {
     
     @State var totalExpenses: Double?
     @State var categoriesSum: [CategorySum]?
+    @State var selectedCurrency: Currency = .local
+    @State var selectedCurrencyRate: CurrencyRate = CurrencyRate(rate: 1.0)
     
     var body: some View {
         VStack(spacing: 0) {
             VStack(spacing: 4) {
-                if totalExpenses != nil {
+                if let total = totalExpenses {
                     Text("Total expenses")
                         .font(.headline)
-                    if totalExpenses != nil {
-                        Text(totalExpenses!.formattedCurrencyText)
-                            .font(.largeTitle)
-                    }
+                    Text(total.converted(to: selectedCurrencyRate).formattedCurrencyText)
+                        .font(.largeTitle)
                 }
             }
             
@@ -42,10 +42,16 @@ struct DashboardTabView: View {
                 
                 Divider()
 
+                SelectCurrencyView(currency: $selectedCurrency.onChange({ currency in
+                    load(currency: currency)
+                }))
+
+                Divider()
+
                 List {
                     Text("Breakdown").font(.headline)
                     ForEach(self.categoriesSum!) {
-                        CategoryRowView(category: $0.category, sum: $0.sum)
+                        CategoryRowView(category: $0.category, sum: $0.sum.converted(to: selectedCurrencyRate))
                     }
                 }
             }
@@ -57,8 +63,31 @@ struct DashboardTabView: View {
                     .padding(.horizontal)
             }
         }
+        .frame(
+          minWidth: 0,
+          maxWidth: .infinity,
+          minHeight: 0,
+          maxHeight: .infinity,
+          alignment: .topLeading
+        )
         .padding(.top)
         .onAppear(perform: fetchTotalSums)
+    }
+
+    func load(currency: Currency) {
+        if currency == .local {
+            selectedCurrencyRate = CurrencyRate(rate: 1.0)
+            return
+        }
+
+        Task.detached(priority: .userInitiated) {
+            do {
+                let item = try await ApiClient.getCurrencyRate()
+                selectedCurrencyRate = item
+            } catch {
+                // TODO:: error handling
+            }
+        }
     }
     
     func fetchTotalSums() {
