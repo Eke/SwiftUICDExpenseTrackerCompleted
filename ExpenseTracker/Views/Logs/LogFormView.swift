@@ -15,6 +15,7 @@ struct LogFormView: View {
     var context: NSManagedObjectContext
     
     @State var name: String = ""
+    @State var note: String = ""
     @State var amount: Double = 0
     @State var category: Category = .utilities
     @State var date: Date = Date()
@@ -31,6 +32,8 @@ struct LogFormView: View {
         NavigationView {
             Form {
                 TextField("Name", text: $name)
+                    .disableAutocorrection(true)
+                TextField("Note", text: $note)
                     .disableAutocorrection(true)
                 TextField("Amount", value: $amount, formatter: Utils.numberFormatter)
                     .keyboardType(.numbersAndPunctuation)
@@ -73,6 +76,7 @@ struct LogFormView: View {
         log.category = self.category.rawValue
         log.amount = NSDecimalNumber(value: self.amount)
         log.date = self.date
+        log.note = self.note
         
         do {
             try context.save()
