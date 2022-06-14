@@ -64,7 +64,7 @@ extension ExpenseLog {
         
     }
     
-    static func predicate(with categories: [Category], searchText: String) -> NSPredicate? {
+    static func predicate(with categories: [Category] = [], searchText: String = "", months: [String] = []) -> NSPredicate? {
         var predicates = [NSPredicate]()
         
         if !categories.isEmpty {
@@ -74,6 +74,10 @@ extension ExpenseLog {
         
         if !searchText.isEmpty {
             predicates.append(NSPredicate(format: "name CONTAINS[cd] %@", searchText.lowercased()))
+        }
+
+        if !months.isEmpty {
+            predicates.append(NSPredicate(format: "month IN %@", months.map { $0.lowercased() }))
         }
         
         if predicates.isEmpty {
