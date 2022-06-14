@@ -63,6 +63,7 @@ struct LogListView: View {
                     logToEdit: log,
                     context: self.context,
                     name: log.name ?? "",
+                    note: log.note ?? "",
                     amount: log.amount?.doubleValue ?? 0,
                     category: Category(rawValue: log.category ?? "") ?? .food,
                     date: log.date ?? Date()
