@@ -35,6 +35,12 @@ struct LogListView: View {
     }
     
     var body: some View {
+        if result.isEmpty {
+            Text("No expenses data\nPlease add your expenses from the logs tab")
+                .multilineTextAlignment(.center)
+                .font(.headline)
+                .padding(.all)
+        }
         List {
             ForEach(result) { (log: ExpenseLog) in
                 Button(action: {

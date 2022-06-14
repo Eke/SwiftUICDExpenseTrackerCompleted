@@ -77,6 +77,8 @@ struct LogFormView: View {
         log.amount = NSDecimalNumber(value: self.amount)
         log.date = self.date
         log.note = self.note
+        let month = Calendar.current.component(.month, from: self.date)
+        log.month = Calendar.current.monthSymbols[month-1].lowercased()
         
         do {
             try context.save()
