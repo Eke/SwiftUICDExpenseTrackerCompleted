@@ -30,13 +30,12 @@ struct FilterButtonView<T>: View {
             }
             .padding(.vertical, 8)
             .padding(.horizontal, 16)
-
-            .overlay(
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(isSelected ? selectedColor : Color(UIColor.lightGray), lineWidth: 1))
-                .frame(height: 44)
+            .frame(height: 44)
+            .background(Blur(style: .prominent))
+            .background(isSelected ? selectedColor : Color.clear)
+            .mask(RoundedRectangle(cornerRadius: 16, style: .continuous))
         }
-        .foregroundColor(isSelected ? selectedColor : Color(UIColor.gray))
+        .foregroundColor(Color.white)
     }
 
 

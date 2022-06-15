@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -39,6 +39,11 @@
 		E34542832858DD1D006378EA /* CurrencyRate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34542822858DD1D006378EA /* CurrencyRate.swift */; };
 		E34CE32D2858DF78000A38C7 /* SelectCurrencyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CE32C2858DF78000A38C7 /* SelectCurrencyView.swift */; };
 		E34CE32F2858E4FB000A38C7 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CE32E2858E4FB000A38C7 /* Api.swift */; };
+		E34CE3322859A49A000A38C7 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = E34CE3312859A49A000A38C7 /* RiveRuntime */; };
+		E34CE3342859A4A7000A38C7 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CE3332859A4A7000A38C7 /* TabBar.swift */; };
+		E34CE33A2859A875000A38C7 /* ecomerce-icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = E34CE3392859A7B4000A38C7 /* ecomerce-icons.riv */; };
+		E34CE33C2859A8DC000A38C7 /* SceneBackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34CE33B2859A8DC000A38C7 /* SceneBackgroundView.swift */; };
+		E34CE33E2859A8F5000A38C7 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = E34CE33D2859A8F5000A38C7 /* shapes.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -76,6 +81,10 @@
 		E34542822858DD1D006378EA /* CurrencyRate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyRate.swift; sourceTree = "<group>"; };
 		E34CE32C2858DF78000A38C7 /* SelectCurrencyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectCurrencyView.swift; sourceTree = "<group>"; };
 		E34CE32E2858E4FB000A38C7 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		E34CE3332859A4A7000A38C7 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		E34CE3392859A7B4000A38C7 /* ecomerce-icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ecomerce-icons.riv"; sourceTree = "<group>"; };
+		E34CE33B2859A8DC000A38C7 /* SceneBackgroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneBackgroundView.swift; sourceTree = "<group>"; };
+		E34CE33D2859A8F5000A38C7 /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34CE3322859A49A000A38C7 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -108,12 +118,12 @@
 		8BE1F53D244C04E90017E21D /* ExpenseTracker */ = {
 			isa = PBXGroup;
 			children = (
+				E34CE3352859A4D3000A38C7 /* Assets */,
 				8BE1F53E244C04E90017E21D /* AppDelegate.swift */,
 				8BE1F540244C04E90017E21D /* SceneDelegate.swift */,
 				8BE1F560244C07EC0017E21D /* Views */,
 				8BE1F55B244C071C0017E21D /* Helpers */,
 				8BE1F555244C057C0017E21D /* Models */,
-				8BE1F544244C04EA0017E21D /* Assets.xcassets */,
 				8BE1F549244C04EA0017E21D /* LaunchScreen.storyboard */,
 				8BE1F54C244C04EA0017E21D /* Info.plist */,
 				8BE1F546244C04EA0017E21D /* Preview Content */,
@@ -194,6 +204,8 @@
 				E345427C2858AC83006378EA /* FilterMonthsView.swift */,
 				E345427E2858B099006378EA /* FilterButtonView.swift */,
 				E34CE32C2858DF78000A38C7 /* SelectCurrencyView.swift */,
+				E34CE3332859A4A7000A38C7 /* TabBar.swift */,
+				E34CE33B2859A8DC000A38C7 /* SceneBackgroundView.swift */,
 			);
 			path = "Common Views";
 			sourceTree = "<group>";
@@ -217,6 +229,24 @@
 			path = "Monthly Summary";
 			sourceTree = "<group>";
 		};
+		E34CE3352859A4D3000A38C7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8BE1F544244C04EA0017E21D /* Assets.xcassets */,
+				E34CE3362859A4DA000A38C7 /* Rive */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		E34CE3362859A4DA000A38C7 /* Rive */ = {
+			isa = PBXGroup;
+			children = (
+				E34CE33D2859A8F5000A38C7 /* shapes.riv */,
+				E34CE3392859A7B4000A38C7 /* ecomerce-icons.riv */,
+			);
+			path = Rive;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -233,6 +263,9 @@
 			dependencies = (
 			);
 			name = ExpenseTracker;
+			packageProductDependencies = (
+				E34CE3312859A49A000A38C7 /* RiveRuntime */,
+			);
 			productName = ExpenseTracker;
 			productReference = 8BE1F53B244C04E90017E21D /* ExpenseTracker.app */;
 			productType = "com.apple.product-type.application";
@@ -261,6 +294,9 @@
 				Base,
 			);
 			mainGroup = 8BE1F532244C04E90017E21D;
+			packageReferences = (
+				E34CE3302859A49A000A38C7 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = 8BE1F53C244C04E90017E21D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -275,7 +311,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E34CE33E2859A8F5000A38C7 /* shapes.riv in Resources */,
 				8BE1F54B244C04EA0017E21D /* LaunchScreen.storyboard in Resources */,
+				E34CE33A2859A875000A38C7 /* ecomerce-icons.riv in Resources */,
 				8BE1F548244C04EA0017E21D /* Preview Assets.xcassets in Resources */,
 				8BE1F545244C04EA0017E21D /* Assets.xcassets in Resources */,
 			);
@@ -296,7 +334,9 @@
 				E34CE32F2858E4FB000A38C7 /* Api.swift in Sources */,
 				8BE1F541244C04E90017E21D /* SceneDelegate.swift in Sources */,
 				8BE1F562244C08020017E21D /* CoreDataStack.swift in Sources */,
+				E34CE33C2859A8DC000A38C7 /* SceneBackgroundView.swift in Sources */,
 				E345427F2858B099006378EA /* FilterButtonView.swift in Sources */,
+				E34CE3342859A4A7000A38C7 /* TabBar.swift in Sources */,
 				8BE1F55D244C07240017E21D /* Utils.swift in Sources */,
 				8BE1F543244C04E90017E21D /* ContentView.swift in Sources */,
 				8BE1F576244C0AB20017E21D /* PieChartRow.swift in Sources */,
@@ -512,6 +552,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		E34CE3302859A49A000A38C7 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		E34CE3312859A49A000A38C7 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = E34CE3302859A49A000A38C7 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		8BE1F552244C05220017E21D /* ExpenseTracker.xcdatamodeld */ = {

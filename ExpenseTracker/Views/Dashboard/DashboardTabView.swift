@@ -24,9 +24,12 @@ struct DashboardTabView: View {
             VStack(spacing: 4) {
                 if let total = totalExpenses {
                     Text("Total expenses")
-                        .font(.headline)
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .tracking(2.0)
+                        .padding(.bottom, 4.0)
                     Text(total.converted(to: selectedCurrencyRate).formattedCurrencyText)
-                        .font(.largeTitle)
+                        .font(.title2)
                 }
             }
             
@@ -38,6 +41,7 @@ struct DashboardTabView: View {
                         form: CGSize(width: 300, height: 240),
                         dropShadow: false
                     )
+                    .padding(.top, 12.0)
                 }
                 
                 Divider()
@@ -49,10 +53,23 @@ struct DashboardTabView: View {
                 Divider()
 
                 List {
-                    Text("Breakdown").font(.headline)
+                    Text("Breakdown")
+                        .font(.headline)
+                        .listRowBackground(Color.clear)
+                        .listRowSeparator(.hidden)
+
                     ForEach(self.categoriesSum!) {
-                        CategoryRowView(category: $0.category, sum: $0.sum.converted(to: selectedCurrencyRate))
+                        CategoryRowView(
+                            category: $0.category,
+                            sum: $0.sum.converted(to: selectedCurrencyRate)
+                        )
                     }
+                    .listRowBackground(Color.clear)
+                    .listRowSeparator(.hidden)
+                }
+                .listStyle(PlainListStyle())
+                .safeAreaInset(edge: .bottom) {
+                    Color.clear.frame(height: 10)
                 }
             }
             
@@ -64,11 +81,11 @@ struct DashboardTabView: View {
             }
         }
         .frame(
-          minWidth: 0,
-          maxWidth: .infinity,
-          minHeight: 0,
-          maxHeight: .infinity,
-          alignment: .topLeading
+            minWidth: 0,
+            maxWidth: .infinity,
+            minHeight: 0,
+            maxHeight: .infinity,
+            alignment: .center
         )
         .padding(.top)
         .onAppear(perform: fetchTotalSums)

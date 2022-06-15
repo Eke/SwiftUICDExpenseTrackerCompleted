@@ -51,16 +51,19 @@ struct LogListView: View {
 
                         VStack(alignment: .leading, spacing: 8) {
                             Text(log.nameText).font(.headline)
-                            Text(log.dateText).font(.subheadline)
+                            if let note = log.note {
+                                Text(note).font(.caption)
+                            }
+                            Text(log.dateText).font(.caption2)
                         }
                         Spacer()
-                        Text(log.amountText).font(.headline)
+                        Text(log.amountText).font(.body)
                     }
-                    .padding(.vertical, 4)
+                    .padding(12)
+                    .background(Blur(style: .prominent))
+                    .mask(RoundedRectangle(cornerRadius: 16, style: .continuous))
                 }
-                
             }
-               
             .onDelete(perform: onDelete)
             .sheet(item: $logToEdit, onDismiss: {
                 self.logToEdit = nil
@@ -75,6 +78,12 @@ struct LogListView: View {
                     date: log.date ?? Date()
                 )
             }
+            .listRowBackground(Color.clear)
+            .listRowSeparator(.hidden)
+        }
+        .listStyle(PlainListStyle())
+        .safeAreaInset(edge: .bottom) {
+            Color.clear.frame(height: 10)
         }
     }
     
