@@ -32,12 +32,12 @@ struct LogsTabView: View {
                 Divider()
                 LogListView(predicate: ExpenseLog.predicate(with: Array(selectedCategories), searchText: searchText), sortDescriptor: ExpenseLogSort(sortType: sortType, sortOrder: sortOrder).sortDescriptor)
             }
-            .padding(.bottom, searchBarHeight)
             .sheet(isPresented: $isAddFormPresented) {
                 LogFormView(context: self.context)
             }
             .navigationBarItems(trailing: Button(action: addTapped) { Text("Add") })
             .navigationBarTitle("Expense Logs", displayMode: .inline)
+            .background(SceneBackgroundView())
         }
     }
     

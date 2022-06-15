@@ -16,9 +16,14 @@ struct CategoryRowView: View {
         HStack {
             CategoryImageView(category: category)
             Text(category.rawValue.capitalized)
+                .font(.headline)
             Spacer()
-            Text(sum.formattedCurrencyText).font(.headline)
+            Text(sum.formattedCurrencyText)
+                .font(.body)
         }
+        .padding(12)
+        .background(Blur(style: .prominent))
+        .mask(RoundedRectangle(cornerRadius: 16, style: .continuous))
     }
 }
 

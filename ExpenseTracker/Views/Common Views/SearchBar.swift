@@ -67,6 +67,7 @@ struct SearchBar: UIViewRepresentable {
     
     func makeUIView(context: UIViewRepresentableContext<SearchBar>) -> UISearchBar {
         let searchBar = UISearchBar(frame: .zero)
+        searchBar.barTintColor = UIColor(named: "Colors/Background")?.withAlphaComponent(0.1)
         searchBar.placeholder = placeholder
         searchBar.delegate = context.coordinator
         searchBar.enablesReturnKeyAutomatically = false

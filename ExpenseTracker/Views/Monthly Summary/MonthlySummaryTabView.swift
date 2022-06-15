@@ -30,6 +30,7 @@ struct MonthlySummaryTabView: View {
                 )
             }
             .navigationBarTitle("Monthly Summary", displayMode: .inline)
+            .background(SceneBackgroundView())
         }
     }
 }
